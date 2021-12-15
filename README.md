@@ -1,2 +1,2 @@
 # algorithm-and-data-structure
-This repository will summarize basic algorithm and data structure.
+As a graduate teaching assistant of data structure course (undergraduate level), I created this repository to summarize basic algorithm and data structure. You're welcome to use it for studying or reviewing these material.
