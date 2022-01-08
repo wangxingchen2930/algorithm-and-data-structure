@@ -16,11 +16,11 @@ Topics include:
 
 ## Asymptotic Notation
 
-Analogy between asymptotic comparison of two functions $f(n)$ and $g(n)$ and the comparison of two real numbers $a$ and $b$;
+Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the comparison of two real numbers *a* and *b*;
 
-- $f(n) = O(g(n)) \approx a \le b$
-- $f(n) = \Omega(g(n)) \approx a \ge b$
-- $f(n) = \Theta(g(n)) \approx a = b$
-- $f(n) = o(g(n)) \approx a < b$
-- $f(n) = \omega(g(n)) \approx a > b$
+- <img src="https://render.githubusercontent.com/render/math?math=f(n) = O(g(n)) \approx a \le b">
+- <img src="https://render.githubusercontent.com/render/math?math=f(n) = \Omega(g(n)) \approx a \ge b">
+- <img src="https://render.githubusercontent.com/render/math?math=f(n) = \Theta(g(n)) \approx a = b">
+- <img src="https://render.githubusercontent.com/render/math?math=f(n) = o(g(n)) \approx a < b">
+- <img src="https://render.githubusercontent.com/render/math?math=f(n) = \omega(g(n)) \approx a > b">
 
