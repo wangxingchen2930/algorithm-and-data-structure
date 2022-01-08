@@ -3,13 +3,34 @@
 Topics include:
 
 - sorting
+    - selection sort
+        - Time Complexity: O(n^2)
+        - Space Complexity: O(1)
     - insertion sort
+        - Time Complexity: O(n^2)
+        - Space Complexity: O(1)
     - shell sort
+    - bubble sort
+        - Time Complexity: O(n^2)
+        - Space Complexity: O(1)
     - heap sort
+        - Time Complexity: O(nlogn)
+        - Space Complexity: O(1)
     - quick sort
+        - Time Complexity: O(nlogn)
+        - Space Complexity: O(n)
     - merge sort
+        - Time Complexity: O(nlogn)
+        - Space Complexity: O(n)
     - radix sort
+        - Time Complexity: O(nk)
+        - Space Complexity: O(n+k)
+    - bucket sort
+        - Time Complexity: O(n+k)
+        - Space Complexity: O(n)
     - topological sort
+        - Time Complexity: O(V+E)
+        - Space Complexity: O(V)
 - searching
 - recursion
 - hashing
