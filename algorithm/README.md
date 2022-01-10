@@ -45,3 +45,35 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 - <img src="https://render.githubusercontent.com/render/math?math=f(n) = o(g(n)) \approx a < b">
 - <img src="https://render.githubusercontent.com/render/math?math=f(n) = \omega(g(n)) \approx a > b">
 
+## Insertion Sort
+
+### Idea
+
+- Insert an item into an already sorted array
+- Compare item with items in the sorted array from largest to smallest
+    - If reverse order, swap items
+- Continue until all items are sorted
+
+### Comments
+
+- Only neighbors are swapped and idential items are never exchanged
+    - Thus, insertion sort is stable, i.e., the relative positions of identical items do not change
+- The algorithm builds up a sorted subarray at the start and successively inserts items into it
+- Move up array to find proper position to insert it
+
+### Improvements
+
+- Select and swap the minimum item with the first item (no longer stable)
+- Use binary search to find corrrect position
+- Use memmove() to move all items (to make room for insertion) "at the same time"
+
+## Shell Sort
+
+### Idea
+
+- Improving insertion sort
+- Allow comparisions and swaps between non-adjacent neighbors
+- Perform insertion sort on *k* subarrays of original array
+- Iterate the process, use a smaller *k* in each pass
+- In the last pass, use k = 1
+
