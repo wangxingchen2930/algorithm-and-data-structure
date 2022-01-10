@@ -24,3 +24,18 @@ Topics include:
 - Nodes in a list are not stored in contiguous locations
 - Not all nodes in a list can be accessed in constant time, but insertion or removal of an item can take O(1) if you know the address of the node before the point of insertion or deletion
     - Can easily shrink or grow a linked list (subject to availability of memory)
+
+### Circular linked lists
+
+- Last node points to the first node
+- Instead of storing head address, we maintain only the tail address
+- Use sentinel to avoid checking the validity of address
+
+### Doublely-linked lists
+
+- Each node stores data, the address of the next node (in the “next” field), and the address of the previous node (in 
+the “prev” field)
+- 4 addresses to be updated for insertion and 2 addresses 
+for deletion
+- Can remove/insert a node easily if address/insertion location is known
+- More memory and overhead (management of links)
