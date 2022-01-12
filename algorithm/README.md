@@ -77,3 +77,20 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 - Iterate the process, use a smaller *k* in each pass
 - In the last pass, use k = 1
 
+## Recursion
+
+- A divide-and-conquer technique
+- Dynamic programming typically relies on a recursive formulation, but uses an iterative approach to compute (and store) solutions to smaller problems (to avoid repeated computation)
+
+### Order of traversals
+
+- Preorder traversal
+    - If the parent node has to pass information to all child nodes
+- Inorder traversal
+- Postorder traversal
+    - If all child nodes have to pass information t a parent node
+
+
+
+
+

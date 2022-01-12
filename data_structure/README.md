@@ -39,3 +39,14 @@ the “prev” field)
 for deletion
 - Can remove/insert a node easily if address/insertion location is known
 - More memory and overhead (management of links)
+
+## Stacks
+
+- LIFO (Last In First Out)
+
+### Implementation
+
+- Linked list
+- Array
+    - Grow the size of the arrsy by a multiplicative factor
+    - Shrink the stack by the same factor
