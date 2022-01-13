@@ -1,4 +1,4 @@
-# algorithm
+# Algorithm
 
 Topics include:
 
@@ -35,7 +35,7 @@ Topics include:
 - recursion
 - hashing
 
-## Asymptotic Notation
+## Asymptotic notation
 
 Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the comparison of two real numbers *a* and *b*;
 
@@ -45,7 +45,7 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 - <img src="https://render.githubusercontent.com/render/math?math=f(n) = o(g(n)) \approx a < b">
 - <img src="https://render.githubusercontent.com/render/math?math=f(n) = \omega(g(n)) \approx a > b">
 
-## Insertion Sort
+## Insertion sort
 
 ### Idea
 
@@ -67,7 +67,7 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 - Use binary search to find corrrect position
 - Use memmove() to move all items (to make room for insertion) "at the same time"
 
-## Shell Sort
+## Shell sort
 
 ### Idea
 
@@ -90,7 +90,46 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 - Postorder traversal
     - If all child nodes have to pass information t a parent node
 
+## Selection sort
 
+### Idea
 
+- Sort by selecting keys (and the associated record) and placing them in their proper (sorted) positions
+- On each pass through a unsorted collection, pick the smallest (largest) element in this collection and move it to its proper position
 
+### Comments
 
+- Not faster even for sorted input
+- Simple insertion sort is preferred
+
+## Heap Sort
+
+### Idea
+
+- Use a descending heap, a tree implemented using array
+- Also called max-heap
+
+### Comments
+
+- It is a priority queue with O(log n) enqueue and dequeue operations
+- Array implementation of heap allows in-place sort
+
+### Enqueue element
+
+- Put the new element at the end of the array
+- Upward heapify (sifting up)
+    - As long as it is larger than its parent, if a parent exists, exchange positions with the parent
+    - Similar to to one pass of insertion sort, where we insert the new element into the correct position along the path from the leaf node to the root
+
+### Dequeue operation
+
+- Exchange contents of root node and the last leaf node
+- Decrement the heap
+- Downward heapify (sifting down)
+    - If the new value at the root node is less than its larger child, exchange with the larger child
+    - Keep “sifting down” the new value by exchanging with its larger child as long as the larger child is greater
+    - Stop when there is no larger child
+
+### Improvement
+
+- Use Downward_heapify to build max-heap
