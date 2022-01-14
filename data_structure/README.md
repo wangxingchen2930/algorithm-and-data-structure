@@ -128,3 +128,48 @@ for deletion
 - Search and insert requires at most 2 rotations to maintain height balanceness
 - Deletion may involve rotations at every level from the parent of the deleted node to the root node
 
+## Graph
+
+- Nodes and edges
+- Directed graphs
+- Adjacency and incidence
+- Degrees
+- Edge weights
+- Path and cycles
+    - DAG (directed acyclic graph)
+- Connected components
+- Strongly connected components
+- Adjacency-matrix
+
+### Searching/traversing graph
+
+- Breadth First Search (BFS)
+    - Manipulation of queue is necessary
+    - Classifying edges by BFS
+        - Tree edges: edges in the BF forest
+        - Back edges: edges in G connecting a vertex to an ancestor in a BFT
+            - Self-loops are back edges
+            - No back edges in an undirected graph
+        - Cross edges: all other edges
+    - O(V + E) operations
+    - Applications
+        - Determine if an undirected graph is connected and identify 
+        - Determine if an undirected graph is cyclic: presence of cross edge within the same tree for undirected graph
+        - Find shortest-length path (fewest edges) from one node to another (useful for network flow algorithms)
+
+connected components
+- Depth First Search (DFS)
+    - Recursion or manipulation of stack is necessary
+    - Classifying edges
+        - Tree edges: edges in the DF forest
+        - Back edges: edges in G connecting a vertex to an ancestor in a DFT
+            - Self-loops are back edges
+        - Forward edges: nontree edges connecting a vertex to a descendant in a DFT
+        - Cross edges: all other edges
+            - Forward and cross edges never occur in DFS of undirected graph
+    - O(V + E) operations
+    - Applications
+        - Determine if an undirected graph is connected and identify connected components
+        - Identify strongly connected components of a directed graph
+        - Determine if a graph is cyclic: presence of back edge
+        - Perform topological sort for DAG

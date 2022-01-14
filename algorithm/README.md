@@ -133,3 +133,55 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 ### Improvement
 
 - Use Downward_heapify to build max-heap
+
+## Quick sort
+
+### Idea
+
+- Choose a pivot wisely
+- Partition array into two subarrays with items less than or equal to pivot, and items greater than (and possibly equal to) pivot (divide)
+- Sort two subarrays recursively (conquer)
+
+### Comments
+
+- Not a stable sorting algorithm because of the partition function
+- Recursion requires stack space
+- Important that the recursive calls are on subarrays that have fewer elements than the original
+
+### Improvement
+
+- Simple insertion sort is faster for smaller arrays, use it when an array is small enough
+
+## Merge sort
+
+### Idea
+
+- Split array into two subarrays of about the same size
+- Sort each subarray recursively (if size > 1)
+- Merge the sorted subarrays
+
+### Quick sort vs Merge sort vs Heap sort
+
+- Quicksort: “difficult” division, easy combination, preorder
+- Mergesort: easy division, “difficult” combination, postorder
+- Quicksort is the fastest sorting algorithm in practice
+    - Can perform as badly as O(n2)
+    - Requires O(log n) stack space
+- Mergesort is guaranteed to run in O(n log n)
+    - Slower than quicksort on average
+    - Requires O(n) additional temporary storage
+- Heapsort is guaranteed to run in O(n log n), in-place, and requires no recursions
+    - Many real world tests show that heapsort is slower than quicksort (and mergesort) on average
+    - Useful for really large problems
+
+### Comments
+
+- Can be stable if merge() is stable
+- Advantage: sequential access of data
+    - Excellent for external (out-of-core) sorting (e.g. disk)
+    - Good cache usage
+
+### Improvement
+
+- By alternating the role of the output array and the auxiliary buffer (and proper initialization), we can avoid the memcpy operations in merge function
+
