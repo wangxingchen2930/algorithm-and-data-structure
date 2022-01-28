@@ -92,20 +92,6 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 
 ## Selection sort
 
-<<<<<<< HEAD
-## Shortest Path Algorithms
-
-### Dijsktra's algorithm
-
-- Initialize d[] = inf except for d[s] = 0
-- Iteratively, add a safe node, say u, i.e., d[u] is the lowest among all d[]
-    - Add u to partial shortest path tree
-    - Tighten if possible all upper bounds of shortest paths of unexplored nodes adjacent to u
-- O(V log V) to perform Extract-Min V times
-- O(E log V) to update PQ in the worst case E times
-- Total time complexity is O(V log V + E log V) = O(E log V)
-- Can be improved to O(E + V log V) if we use a Fibonacci heap
-=======
 ### Idea
 
 - Sort by selecting keys (and the associated record) and placing them in their proper (sorted) positions
@@ -198,7 +184,21 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 ### Improvement
 
 - By alternating the role of the output array and the auxiliary buffer (and proper initialization), we can avoid the memcpy operations in merge function
->>>>>>> 90328421b168eac61c98db943377aabe00908f08
+
+
+## Shortest Path Algorithms
+
+### Dijsktra's algorithm
+
+- Initialize d[] = inf except for d[s] = 0
+- Iteratively, add a safe node, say u, i.e., d[u] is the lowest among all d[]
+    - Add u to partial shortest path tree
+    - Tighten if possible all upper bounds of shortest paths of unexplored nodes adjacent to u
+- O(V log V) to perform Extract-Min V times
+- O(E log V) to update PQ in the worst case E times
+- Total time complexity is O(V log V + E log V) = O(E log V)
+- Can be improved to O(E + V log V) if we use a Fibonacci heap
+
 
 ### Bellman-Ford algorithm
 
