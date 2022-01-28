@@ -1,4 +1,4 @@
-# algorithm
+# Algorithm
 
 Topics include:
 
@@ -35,7 +35,7 @@ Topics include:
 - recursion
 - hashing
 
-## Asymptotic Notation
+## Asymptotic notation
 
 Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the comparison of two real numbers *a* and *b*;
 
@@ -45,7 +45,7 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 - <img src="https://render.githubusercontent.com/render/math?math=f(n) = o(g(n)) \approx a < b">
 - <img src="https://render.githubusercontent.com/render/math?math=f(n) = \omega(g(n)) \approx a > b">
 
-## Insertion Sort
+## Insertion sort
 
 ### Idea
 
@@ -67,7 +67,7 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 - Use binary search to find corrrect position
 - Use memmove() to move all items (to make room for insertion) "at the same time"
 
-## Shell Sort
+## Shell sort
 
 ### Idea
 
@@ -90,7 +90,9 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 - Postorder traversal
     - If all child nodes have to pass information t a parent node
 
+## Selection sort
 
+<<<<<<< HEAD
 ## Shortest Path Algorithms
 
 ### Dijsktra's algorithm
@@ -103,6 +105,100 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 - O(E log V) to update PQ in the worst case E times
 - Total time complexity is O(V log V + E log V) = O(E log V)
 - Can be improved to O(E + V log V) if we use a Fibonacci heap
+=======
+### Idea
+
+- Sort by selecting keys (and the associated record) and placing them in their proper (sorted) positions
+- On each pass through a unsorted collection, pick the smallest (largest) element in this collection and move it to its proper position
+
+### Comments
+
+- Not faster even for sorted input
+- Simple insertion sort is preferred
+
+## Heap Sort
+
+### Idea
+
+- Use a descending heap, a tree implemented using array
+- Also called max-heap
+
+### Comments
+
+- It is a priority queue with O(log n) enqueue and dequeue operations
+- Array implementation of heap allows in-place sort
+
+### Enqueue element
+
+- Put the new element at the end of the array
+- Upward heapify (sifting up)
+    - As long as it is larger than its parent, if a parent exists, exchange positions with the parent
+    - Similar to to one pass of insertion sort, where we insert the new element into the correct position along the path from the leaf node to the root
+
+### Dequeue operation
+
+- Exchange contents of root node and the last leaf node
+- Decrement the heap
+- Downward heapify (sifting down)
+    - If the new value at the root node is less than its larger child, exchange with the larger child
+    - Keep “sifting down” the new value by exchanging with its larger child as long as the larger child is greater
+    - Stop when there is no larger child
+
+### Improvement
+
+- Use Downward_heapify to build max-heap
+
+## Quick sort
+
+### Idea
+
+- Choose a pivot wisely
+- Partition array into two subarrays with items less than or equal to pivot, and items greater than (and possibly equal to) pivot (divide)
+- Sort two subarrays recursively (conquer)
+
+### Comments
+
+- Not a stable sorting algorithm because of the partition function
+- Recursion requires stack space
+- Important that the recursive calls are on subarrays that have fewer elements than the original
+
+### Improvement
+
+- Simple insertion sort is faster for smaller arrays, use it when an array is small enough
+
+## Merge sort
+
+### Idea
+
+- Split array into two subarrays of about the same size
+- Sort each subarray recursively (if size > 1)
+- Merge the sorted subarrays
+
+### Quick sort vs Merge sort vs Heap sort
+
+- Quicksort: “difficult” division, easy combination, preorder
+- Mergesort: easy division, “difficult” combination, postorder
+- Quicksort is the fastest sorting algorithm in practice
+    - Can perform as badly as O(n2)
+    - Requires O(log n) stack space
+- Mergesort is guaranteed to run in O(n log n)
+    - Slower than quicksort on average
+    - Requires O(n) additional temporary storage
+- Heapsort is guaranteed to run in O(n log n), in-place, and requires no recursions
+    - Many real world tests show that heapsort is slower than quicksort (and mergesort) on average
+    - Useful for really large problems
+
+### Comments
+
+- Can be stable if merge() is stable
+- Advantage: sequential access of data
+    - Excellent for external (out-of-core) sorting (e.g. disk)
+    - Good cache usage
+
+### Improvement
+
+- By alternating the role of the output array and the auxiliary buffer (and proper initialization), we can avoid the memcpy operations in merge function
+>>>>>>> 90328421b168eac61c98db943377aabe00908f08
 
 ### Bellman-Ford algorithm
 
