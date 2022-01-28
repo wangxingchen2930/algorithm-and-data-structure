@@ -91,6 +91,28 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
     - If all child nodes have to pass information t a parent node
 
 
+## shortest Path Algorithms
 
+### Dijsktra's algorithm
 
+- Initialize d[] = inf except for d[s] = 0
+- Iteratively, add a safe node, say u, i.e., d[u] is the lowest among all d[]
+    - Add u to partial shortest path tree
+    - Tighten if possible all upper bounds of shortest paths of unexplored nodes adjacent to u
+- O(V log V) to perform Extract-Min V times
+- O(E log V) to update PQ in the worst case E times
+- Total time complexity is O(V log V + E log V) = O(E log V)
+- Can be improved to O(E + V log V) if we use a Fibonacci heap
 
+### Bellman-Ford algorithm
+
+- Edge weights can be **negative**
+- Find shortest paths of length at most k (i.e., at most k edges) in iteration k
+    - Subpaths of shortest paths are also shortest paths
+    - If shortest paths of length k – 1 is known, shortest paths of length k can be computed
+    - If no negative cycles, all shortest paths should not have cycles
+- Bellman-Ford algorithm can be made to terminate early
+- If the longest path length of all shortest paths is k, we need only k+1 iterations
+- Each iteration takes O(E)
+- In total, O(kE), where k is the longest path length of all shortest paths
+- In the worst case, O(VE) time complexity
