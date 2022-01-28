@@ -91,7 +91,7 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
     - If all child nodes have to pass information t a parent node
 
 
-## shortest Path Algorithms
+## Shortest Path Algorithms
 
 ### Dijsktra's algorithm
 
