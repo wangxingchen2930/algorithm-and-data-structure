@@ -212,3 +212,23 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 - Each iteration takes O(E)
 - In total, O(kE), where k is the longest path length of all shortest paths
 - In the worst case, O(VE) time complexity
+
+## Directed acyclic graphs
+
+### Topological sort
+
+Given a DAG G = (V, E), topological sort is a linear ordering of all vertices of the DAG such that if G contains an edge <u, v>, u appears before v in the ordering
+
+- Initialize an empty queue and an empty list
+- Initialize the in-degree of each node to 0
+- Go through adjacency lists of all nodes to count the in-degree of every node
+- Go through all the nodes and enqueue every node with in-degree 0
+- While queue is not empty
+    - Dequeue node v from queue and output it to end of list
+    - Reduce the in-degree of all nodes in the adjacency list of v
+        - If the in-degree becomes zero, enqueue the node
+- The list contains the topological sort order of DAG
+- **DFS-based**: 
+    - Whenever a node is colored BLACK, insert it in front of linked list
+    - Return linked list of vertices (in reverse order of timestamp f[ ])
+- Topological sort O(V + E)
