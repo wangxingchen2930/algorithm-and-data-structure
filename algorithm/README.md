@@ -231,3 +231,45 @@ Given a directed acyclic graphs(DAG) G = (V, E), topological sort is a linear or
     - Whenever a node is colored BLACK, insert it in front of linked list
     - Return linked list of vertices (in reverse order of timestamp f[ ])
 - Topological sort O(V + E)
+
+## Non-comparison-based sorting
+
+### Counting sort
+
+- An array of n non-negative integers r[0..n-1], with the maximum possible integer being k
+    - If integers can be negative, subtract minimum to turn them non-negative
+- Space complexity: O(k)
+- Time complexity
+    - First for-loop, O(k)
+    - Second for-loop, O(n)
+    - Last double for-loop, O(k + n)
+- If k >> n, should not use counting sort
+
+### Bucket sort (hash sort)
+
+- Set up a set of m “buckets” (often an array of linked lists)
+- For each item x, compute index of its bucket f(x) {0, ..., m – 1} and place the item in it
+- Sort each non-empty bucket (or place the item in 
+order in Step 2)
+- Put items from non-empty buckets back into array
+- All items in one bucket must be greater than those in the preceding buckets and less than those in the following buckets
+- Space complexity: O(n + m) to account for linked lists of altogether n items and m buckets
+- Time complexity
+    - If keys are distributed uniformly over all m buckets and there is only one record per bucket, complexity is O(n+m)
+    - In the worst case, O(n2) if there are O(n) records in at least one of the buckets and insertion sort is used to sort each buckets
+
+### Radix sort
+
+- Based on the values of the actual digits (or symbols) in the positional representations of the numbers being sorted
+- Determining which of two integers of equal length is 
+larger
+    - Start at the most significant position and advance through the least significant position as long as the corresponding symbols in the two numbers match
+    - The number with the symbol that has a larger magnitude in the first position in which the symbols of the two numbers do not match is the larger of the two numbers
+    - If all symbols of both numbers match, the numbers are equal
+- Space complexity: O(n)
+- Time complexity: O(n * d)
+
+### Which sorting algorithm to use?
+- For small or almost sorted input: simple insertion sort
+- If input is distributed uniformly, bucket sort is a good choice
+- If in-place sorting is not important, quicksort is in general quite efficient
