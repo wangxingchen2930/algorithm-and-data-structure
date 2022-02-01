@@ -273,3 +273,41 @@ larger
 - For small or almost sorted input: simple insertion sort
 - If input is distributed uniformly, bucket sort is a good choice
 - If in-place sorting is not important, quicksort is in general quite efficient
+
+
+## Hashing
+
+- A search method for finding items in O(1)
+- Let the key of an item tell you where to find it, a hash function, h(key), that maps a key to a valid index of an array called hash table
+    - Given a key, can retrieve the item from hash table using htable[h(key)] directly
+    - O(1) means the time complexity is constant regardless the size of the hash table and the number of items in the table
+
+### Collision resolution
+
+- Separate chaining: collisions are placed outside the hash table with links
+    - Load factor: a = n/m
+    - Average length of list is a
+    - Insertion (of distinct keys) or search: O(1+a)
+    - Deletion: O(1+a)
+- Coalesced chaining: collisions are placed inside the hash table with links
+    - For an unsuccessful search, average number of probes = e^(2a/4) – a/2 + 0.75
+    - For a successful search, average number of probes = (e^(2a) – 1)/8a – a/4 + 0.75
+- Open adddressing: collisions are placed inside the hash table without links
+    - Average number of probes for a successful search: (1/2)*(1 + (1-a)^(-1))
+    - Average number of probes for an unsuccessful search:  (1/2)*(1 + (1-a)^(-2))
+
+### Double hashing
+
+- Similar to linear probing as in using a probe sequence based on h(k, i), i starts at 0, and potentially ends at m – 1 if the entire table is filled
+- Instead of probe increment of 1 as in linear probing, use h2(k) to provide the increment for probing
+- h(k, i) = (h1(k) + i * h2(k)) % m
+- Expected cost of unsuccessful search = O(1 + a + a2 + a3 + ...) = O(1/(1 – a))
+- Expected cost of successful search is (1/a) * ln(1/(1-a))
+
+### Universal hashing
+
+- A collection H of hash functions is universal if
+    - For any two distinct keys x and y, the number of hash functions h belongs to H for which h(x) = h(y) is |H|/m
+    - The chance of a collison between x and y when h is chosen randomly from H is 1/m (= |H|/m * 1/|H|)
+- Expected number of collisions when hashing n items into m slots (n £ m) is (n – 1)/m < 1
+- Chance of collision is 1/m, as desired
