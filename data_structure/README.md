@@ -24,6 +24,8 @@ Topics include:
 - Nodes in a list are not stored in contiguous locations
 - Not all nodes in a list can be accessed in constant time, but insertion or removal of an item can take O(1) if you know the address of the node before the point of insertion or deletion
     - Can easily shrink or grow a linked list (subject to availability of memory)
+- To swap two nodes in linked list, two previous nodes's addresses need to be known as well.
+    - The operation on first node may be different from other nodes (there is no previous node for the first node)
 
 ### Circular linked lists
 
