@@ -77,6 +77,11 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 - Iterate the process, use a smaller *k* in each pass
 - In the last pass, use k = 1
 
+### Optimization
+
+- Every element is at most one position off to the right place after two-sorting and three-sorting. Saparate k-sorting function could be implemented for one-sorting (last sorting) which only need one time traversing.
+- Implementing the shell sort based on bubble sort could be early stopped by finding no swapping in any single traversing.
+
 ## Recursion
 
 - A divide-and-conquer technique
