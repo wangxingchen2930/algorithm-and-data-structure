@@ -190,3 +190,129 @@ Analogy between asymptotic comparison of two functions *f(n)* and *g(n)* and the
 
 - By alternating the role of the output array and the auxiliary buffer (and proper initialization), we can avoid the memcpy operations in merge function
 
+
+## Shortest Path Algorithms
+
+### Dijsktra's algorithm
+
+- Initialize d[] = inf except for d[s] = 0
+- Iteratively, add a safe node, say u, i.e., d[u] is the lowest among all d[]
+    - Add u to partial shortest path tree
+    - Tighten if possible all upper bounds of shortest paths of unexplored nodes adjacent to u
+- O(V log V) to perform Extract-Min V times
+- O(E log V) to update PQ in the worst case E times
+- Total time complexity is O(V log V + E log V) = O(E log V)
+- Can be improved to O(E + V log V) if we use a Fibonacci heap
+
+
+### Bellman-Ford algorithm
+
+- Edge weights can be **negative**
+- Find shortest paths of length at most k (i.e., at most k edges) in iteration k
+    - Subpaths of shortest paths are also shortest paths
+    - If shortest paths of length k – 1 is known, shortest paths of length k can be computed
+    - If no negative cycles, all shortest paths should not have cycles
+- Bellman-Ford algorithm can be made to terminate early
+- If the longest path length of all shortest paths is k, we need only k+1 iterations
+- Each iteration takes O(E)
+- In total, O(kE), where k is the longest path length of all shortest paths
+- In the worst case, O(VE) time complexity
+
+
+## Topological sort
+
+Given a directed acyclic graphs(DAG) G = (V, E), topological sort is a linear ordering of all vertices of the DAG such that if G contains an edge <u, v>, u appears before v in the ordering
+
+- Initialize an empty queue and an empty list
+- Initialize the in-degree of each node to 0
+- Go through adjacency lists of all nodes to count the in-degree of every node
+- Go through all the nodes and enqueue every node with in-degree 0
+- While queue is not empty
+    - Dequeue node v from queue and output it to end of list
+    - Reduce the in-degree of all nodes in the adjacency list of v
+        - If the in-degree becomes zero, enqueue the node
+- The list contains the topological sort order of DAG
+- **DFS-based**: 
+    - Whenever a node is colored BLACK, insert it in front of linked list
+    - Return linked list of vertices (in reverse order of timestamp f[ ])
+- Topological sort O(V + E)
+
+## Non-comparison-based sorting
+
+### Counting sort
+
+- An array of n non-negative integers r[0..n-1], with the maximum possible integer being k
+    - If integers can be negative, subtract minimum to turn them non-negative
+- Space complexity: O(k)
+- Time complexity
+    - First for-loop, O(k)
+    - Second for-loop, O(n)
+    - Last double for-loop, O(k + n)
+- If k >> n, should not use counting sort
+
+### Bucket sort (hash sort)
+
+- Set up a set of m “buckets” (often an array of linked lists)
+- For each item x, compute index of its bucket f(x) {0, ..., m – 1} and place the item in it
+- Sort each non-empty bucket (or place the item in 
+order in Step 2)
+- Put items from non-empty buckets back into array
+- All items in one bucket must be greater than those in the preceding buckets and less than those in the following buckets
+- Space complexity: O(n + m) to account for linked lists of altogether n items and m buckets
+- Time complexity
+    - If keys are distributed uniformly over all m buckets and there is only one record per bucket, complexity is O(n+m)
+    - In the worst case, O(n2) if there are O(n) records in at least one of the buckets and insertion sort is used to sort each buckets
+
+### Radix sort
+
+- Based on the values of the actual digits (or symbols) in the positional representations of the numbers being sorted
+- Determining which of two integers of equal length is 
+larger
+    - Start at the most significant position and advance through the least significant position as long as the corresponding symbols in the two numbers match
+    - The number with the symbol that has a larger magnitude in the first position in which the symbols of the two numbers do not match is the larger of the two numbers
+    - If all symbols of both numbers match, the numbers are equal
+- Space complexity: O(n)
+- Time complexity: O(n * d)
+
+### Which sorting algorithm to use?
+- For small or almost sorted input: simple insertion sort
+- If input is distributed uniformly, bucket sort is a good choice
+- If in-place sorting is not important, quicksort is in general quite efficient
+
+
+## Hashing
+
+- A search method for finding items in O(1)
+- Let the key of an item tell you where to find it, a hash function, h(key), that maps a key to a valid index of an array called hash table
+    - Given a key, can retrieve the item from hash table using htable[h(key)] directly
+    - O(1) means the time complexity is constant regardless the size of the hash table and the number of items in the table
+
+### Collision resolution
+
+- Separate chaining: collisions are placed outside the hash table with links
+    - Load factor: a = n/m
+    - Average length of list is a
+    - Insertion (of distinct keys) or search: O(1+a)
+    - Deletion: O(1+a)
+- Coalesced chaining: collisions are placed inside the hash table with links
+    - For an unsuccessful search, average number of probes = e^(2a/4) – a/2 + 0.75
+    - For a successful search, average number of probes = (e^(2a) – 1)/8a – a/4 + 0.75
+- Open adddressing: collisions are placed inside the hash table without links
+    - Average number of probes for a successful search: (1/2)*(1 + (1-a)^(-1))
+    - Average number of probes for an unsuccessful search:  (1/2)*(1 + (1-a)^(-2))
+
+### Double hashing
+
+- Similar to linear probing as in using a probe sequence based on h(k, i), i starts at 0, and potentially ends at m – 1 if the entire table is filled
+- Instead of probe increment of 1 as in linear probing, use h2(k) to provide the increment for probing
+- h(k, i) = (h1(k) + i * h2(k)) % m
+- Expected cost of unsuccessful search = O(1 + a + a2 + a3 + ...) = O(1/(1 – a))
+- Expected cost of successful search is (1/a) * ln(1/(1-a))
+
+### Universal hashing
+
+- A collection H of hash functions is universal if
+    - For any two distinct keys x and y, the number of hash functions h belongs to H for which h(x) = h(y) is |H|/m
+    - The chance of a collison between x and y when h is chosen randomly from H is 1/m (= |H|/m * 1/|H|)
+- Expected number of collisions when hashing n items into m slots (n £ m) is (n – 1)/m < 1
+- Chance of collision is 1/m, as desired

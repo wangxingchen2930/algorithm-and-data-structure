@@ -128,6 +128,33 @@ for deletion
 - Search and insert requires at most 2 rotations to maintain height balanceness
 - Deletion may involve rotations at every level from the parent of the deleted node to the root node
 
+## Minimum spanning trees
+
+- Given a weighted, connected undirected graph
+- The cost of a spanning tree is the sum of the weights of the edges
+- A minimum-cost spanning tree (MST) is a spanning that has the lowest cost (there may be a few MSTs)
+
+### Kruskal's algorithm
+
+- Maintains a set A of edges that are part of MST (or partial MST)
+- At each iteration, it picks the smallest weighted edge among the set of available edges in G
+    - If the edge does not form a cycle with the edges in A, the edge is included in A
+    - Otherwise, the edge is discarded
+    - In either case, the edge is removed from the set of available edges in G
+- Terminates when A has only one connected component
+- Time complexity: O(V + E + E log V) = O(E log V)
+
+### Prim's algorithm
+
+- The set A forms a single tree or partial MST
+    - Let the nodes in the partial MST be C
+- A defines a natural cut (C, V – C)
+- A safe edge is a minimum-weight edge that 
+connects C to a node in V – C
+- Choose a minimum-weight edge among all edges that are incident on currently explored nodes (in C or partial MST) and unexplored nodes
+- Time complexity: O((V + E)log V)
+
+
 ## Graph
 
 - Nodes and edges
