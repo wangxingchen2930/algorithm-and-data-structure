@@ -10,6 +10,7 @@ Topics include:
         - Time Complexity: O(n^2)
         - Space Complexity: O(1)
     - shell sort
+        - Time Complextity: O(n(logn)^2)
     - bubble sort
         - Time Complexity: O(n^2)
         - Space Complexity: O(1)
