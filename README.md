@@ -2,4 +2,6 @@
 
 I created this repository to summarize basic algorithms and data structures.
 
-Credit to Prof Cheng-Kok Koh
+## Acknowledgements
+
+Partly borrowed from Prof. Cheng-Kok Koh's ECE 368.
