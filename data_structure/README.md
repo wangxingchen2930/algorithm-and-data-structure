@@ -157,6 +157,32 @@ connects C to a node in V – C
 - Time complexity: O((V + E)log V)
 
 
+## B-trees
+
+keep the multiway search tree balanced to minimize the tree height
+
+### Properties
+
+- When a B-tree has a minimum degree n ³ 2, its order is order 2n
+- Each non-root node has at least n – 1 keys
+- The root node of a non-empty B-tree has at least 1 key
+- Each node has at most 2n – 1 keys (order 2n)
+- If an internal node (non-leaf node) has j keys, it has j+1 (non-NULL) children
+- The addresses of children at leaf nodes are NULL
+- All leaf nodes are at the same level, i.e., balanced
+
+## Red-black trees
+
+Implementation of a B-tree of minimum degree 2 using a binary search tree is called a red-black tree
+
+### Properties
+- Marking a node red or black is equivlaent to marking its parent edge red or black
+    - Root node is always black
+    - NULL node is always black
+- No two red nodes appear consecutively (as parent-child) (Red rule)
+- All paths, each from a NULL node (NULL pointer) to the root, in a balanced red-black BST have the same number of black nodes (Black rule)
+- Height of a red-black tree is still O(log n)
+
 ## Graph
 
 - Nodes and edges
