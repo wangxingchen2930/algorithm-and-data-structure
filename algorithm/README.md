@@ -35,6 +35,7 @@ Topics include:
 - searching
 - recursion
 - hashing
+- NP-completeness
 
 ## Asymptotic notation
 
@@ -317,3 +318,28 @@ larger
     - The chance of a collison between x and y when h is chosen randomly from H is 1/m (= |H|/m * 1/|H|)
 - Expected number of collisions when hashing n items into m slots (n £ m) is (n – 1)/m < 1
 - Chance of collision is 1/m, as desired
+
+## NP-completeness
+
+### NP Problem
+
+The NP problems set of problems whose solutions are hard to find but easy to verify and are solved by Non-Deterministic Machine in polynomial time.
+
+### P vs NP
+
+It asks whether every problem whose solution can be quickly verified can also be quickly solved.
+- The class of questions for which some algorithm can provide an answer in polynomial time is **P**.
+- The class of questions for which an answer can be verified in polynomial time id **NP**, which stands for "nondeterministic polynomial time". 
+
+### NP-Hard Problem
+
+A Problem **X** is NP-Hard if there is an NP-complete problem **Y**, such that **Y** is reducible to **X** in polynomial time. NP-Hard problems are as hard as NP-Complete problems. NP-Hard problem need not be in NP class.
+
+***Example:*** Halting problem, Vertex cover problem, etc.
+
+### NP-Complete Problem
+
+A problem **X** is NP-Complete if there is an NP problem **Y**, such that **Y** is reducible to **X** in polynomial time. NP-Complete problems are as hard as NP problems. A problem is NP-Complete if it is a part of both NP and NP-hard problem. A non-deterministic Turing machine can solve NP-Complete problem in polynomial time.
+
+***Example:*** Determine whether a graph has a Hamiltonian cycle, Determine whether a Boolean formula is satisfiable or not, Circuit-satisfiability problem, etc.
+
