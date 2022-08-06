@@ -2,40 +2,48 @@
 
 Topics include:
 
-- sorting
-    - selection sort
+- Sorting
+    - Selection sort
         - Time Complexity: O(n^2)
         - Space Complexity: O(1)
-    - insertion sort
+    - Insertion sort
         - Time Complexity: O(n^2)
         - Space Complexity: O(1)
-    - shell sort
+    - Shell sort
         - Time Complextity: O(n(logn)^2)
-    - bubble sort
+    - Bubble sort
         - Time Complexity: O(n^2)
         - Space Complexity: O(1)
-    - heap sort
+    - Heap sort
         - Time Complexity: O(nlogn)
         - Space Complexity: O(1)
-    - quick sort
+    - Quick sort
         - Time Complexity: O(nlogn)
         - Space Complexity: O(n)
-    - merge sort
+    - Merge sort
         - Time Complexity: O(nlogn)
         - Space Complexity: O(n)
-    - radix sort
+    - Radix sort
         - Time Complexity: O(nk)
         - Space Complexity: O(n+k)
-    - bucket sort
+    - Bucket sort
         - Time Complexity: O(n+k)
         - Space Complexity: O(n)
-    - topological sort
+- Searching
+    - Topological sort
         - Time Complexity: O(V+E)
         - Space Complexity: O(V)
-- searching
-- recursion
-- hashing
+    - Depth first search (DFS)
+    - Breadth first search (BFS)
+- Recursion
+- Hashing
+- Dynamic Programming
+- Greedy Algorithms
+- Linear Programming
+- Approximation Algorithms
+- Randomization
 - NP-completeness
+
 
 ## Asymptotic notation
 
@@ -318,6 +326,16 @@ larger
     - The chance of a collison between x and y when h is chosen randomly from H is 1/m (= |H|/m * 1/|H|)
 - Expected number of collisions when hashing n items into m slots (n £ m) is (n – 1)/m < 1
 - Chance of collision is 1/m, as desired
+
+
+## Dynamic Programming
+
+### Greedy vs Divide-and-conquer vs Dynamic programming:
+- Greedy: Build up a solution incrementally, myopically optimizing some local criterion.
+- Divide-and-conquer: Break up a problem int sub-problems, solve each sub-problem independently, and combine solution to sub-problems to form solution to original problems.
+- Dynamic programming: Break up a problem into a series of overlapping sub-problems, and build up solutions to larger and larger sub-problems.
+
+
 
 ## NP-completeness
 
