@@ -39,6 +39,8 @@ Topics include:
 - Hashing
 - Dynamic Programming
 - Greedy Algorithms
+- Amortization
+- Graph algorithms
 - Linear Programming
 - Approximation Algorithms
 - Randomization
