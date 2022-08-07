@@ -42,9 +42,10 @@ Topics include:
 - Amortization
 - Graph algorithms
 - Linear Programming
+- NP-completeness
 - Approximation Algorithms
 - Randomization
-- NP-completeness
+
 
 
 ## Asymptotic notation
@@ -339,11 +340,49 @@ larger
 
 
 
+## Divide-and-Conquer
+
+- Break up problem into several parts
+- Solve each part recursively
+- Combine solutions to sub-problems into overall solution
+
+### Most common usage
+
+- Break up problem of size n into two equal parts of size ${1\over2}n$
+- Solve two parts recursively
+- Combine two solutions into overall solution in linear time
+
+### Consequence
+
+- Brute force: $O(n^2)$
+- Divide-and-conquer: $O(nlogn)$
+
+***Applications***: Merge sort, FFT
+
+
 ## NP-completeness
+
+### Polynomial Reduction
+
+Problem **X** polynomial reduces to problem **Y** if arbitrary instances of problem **X** can be solved using:
+- Polynomial number of standard computational steps, plus
+- Polynomial number of calls to oracle that solves problem **Y**
+
+***Notation:*** $X \leq_p Y$
+
+### Polynomial Transformation
+
+Problem **X** polynomial transforms to problem **Y** if given any input x to **X**, we can construct an input y such that x is a **yes** instance of **X** iff y is a **yes** instance of **Y**
+
+***Note:*** Polynomial transformation is polynomial reduction with just one call to oracle for **Y**, exactly at the end of the algorithm for **X**. Almost all previous reductions were of this form.
 
 ### NP Problem
 
 The NP problems set of problems whose solutions are hard to find but easy to verify and are solved by Non-Deterministic Machine in polynomial time.
+
+### CO-NP
+
+A decision problem **X** is a member of co-NO if and only if its complement $\overline{X}$ is in the complexity class NP.
 
 ### P vs NP
 
@@ -351,15 +390,63 @@ It asks whether every problem whose solution can be quickly verified can also be
 - The class of questions for which some algorithm can provide an answer in polynomial time is **P**.
 - The class of questions for which an answer can be verified in polynomial time id **NP**, which stands for "nondeterministic polynomial time". 
 
+### NP-Complete Problem
+
+A problem **X** is NP-Complete if there is an NP problem **Y**, such that **Y** is reducible to **X** in polynomial time. NP-Complete problems are as hard as NP problems. A problem is NP-Complete if it is a part of both NP and NP-hard problem. A non-deterministic Turing machine can solve NP-Complete problem in polynomial time.
+
+***Note:*** A problem **X** in NP with the property that for every problem **Y** in NP, $Y \leq_p X$
+
+***Example:*** Determine whether a graph has a Hamiltonian cycle, Determine whether a Boolean formula is satisfiable or not, Circuit-satisfiability problem, etc.
+
 ### NP-Hard Problem
 
 A Problem **X** is NP-Hard if there is an NP-complete problem **Y**, such that **Y** is reducible to **X** in polynomial time. NP-Hard problems are as hard as NP-Complete problems. NP-Hard problem need not be in NP class.
 
 ***Example:*** Halting problem, Vertex cover problem, etc.
 
-### NP-Complete Problem
+### PSPACE
 
-A problem **X** is NP-Complete if there is an NP problem **Y**, such that **Y** is reducible to **X** in polynomial time. NP-Complete problems are as hard as NP problems. A problem is NP-Complete if it is a part of both NP and NP-hard problem. A non-deterministic Turing machine can solve NP-Complete problem in polynomial time.
+Decision problems solvable in polynomial **space**.
 
-***Example:*** Determine whether a graph has a Hamiltonian cycle, Determine whether a Boolean formula is satisfiable or not, Circuit-satisfiability problem, etc.
+Problem **Y** is **PSPACE-complete** if
+- **Y** is in PSPACE 
+- for every problem **X** in PSPACE, $X \leq_p Y$
 
+***Note:*** $P \subseteq NP \subseteq PSPACE \subseteq EXPTIME$
+
+
+## Approximation Algorithm
+
+***Q:*** How to solve a NP-hard problem?
+
+***A:*** It's unlikely to find a poly-time algorithm.
+
+Must sacrifice one of three desired features:
+- Solve problem to optimality
+- Solve problem in poly-time
+- Solve arbitrary instances of the problem
+
+**$\rho$**-approximation algorithm
+- guaranteed to run in poly-time
+- guaranteed to solve arbitrary instance of the problem
+- guaranteed to find solution within ratio **$\rho$** of true optimum
+
+***Challenge:*** Need to prove a solution's value is close to optimum, without even knowing what optimum value is!
+
+## Randomized Algorithms
+
+Can lead to simplest, fastest, or only known algorithm for a particular problem.
+
+### RP
+
+Decision problems solvable with one-sided error in poly-time.
+
+One-sided error:
+- If the correct answer is no, always return no
+- If the correct answer is yes, return yes with probability $\ge {1\over2}$
+
+### ZPP
+
+Decision problems solvable in expected poly-time.
+
+***Note:*** $P \subseteq ZPP \subseteq RP \subseteq NP$
